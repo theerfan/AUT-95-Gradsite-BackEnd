@@ -27,5 +27,13 @@ func NewDB() (*gorm.DB, error) {
 	}
 	db.DB().SetMaxIdleConns(2)
 	db.LogMode(true)
-	return db
+	return db, err
 }
+
+func AutoMigrate(db *gorm.DB) {
+	db.AutoMigrate(
+		// Enter models here, like this:
+		// &model.Ksher{},
+	)
+}
+
